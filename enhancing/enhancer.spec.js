@@ -1,4 +1,5 @@
 const enhancer = require("./enhancer.js");
+const { repair } = require("./enhancer.js");
 // test away!
 describe("Testing Jest", () => {
   it("renders", () => {
@@ -34,7 +35,11 @@ describe("Enhancer Unit Tests", () => {
     })
 
     it("Repairs item", () => {
-        
+        const {repair} = enhancer
+
+        const newItem = repair(item)
+
+       expect(newItem.durability).toBe(100)
     })
 
     it("Changes item name", () => {
