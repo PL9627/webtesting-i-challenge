@@ -20,7 +20,17 @@ describe("Enhancer Unit Tests", () => {
     })
 
     it("Fails to enhance", () => {
-        
+        const {fail} = enhancer
+
+        const newItem = fail(item)
+
+        if (newItem.enhancement < 15) {
+            expect(newItem.durability).toBe(newItem.durability - 5)
+        } else if (newItem.enhancement >= 15) {
+            expect(newItem.durability).toBe(newItem.durability - 10)
+        } else if (newItem.enhancement > 16) {
+            expect(newItem.durability).toBe(newItem.durability - 1)
+        }
     })
 
     it("Repairs item", () => {
